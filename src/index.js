@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import  ReactDOM  from "react-dom";
+import Count from "./Count";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+function MyApp() {
+   const [count , setCount] = useState(0)
+   const addCount = () => {
+     setCount(count + 1)
+   }
+   return (
+    <div className="container">
+     <button onClick={addCount}>Add</button>
+     <Count count = {count}/>
+  </div>
+   )
+}
+
+ReactDOM.render(
+  <MyApp />,
+  document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
